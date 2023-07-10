@@ -39,7 +39,7 @@ const Header = () => {
         textAlign="center"
         gap={4}
       >
-        <Image src="/persona.svg" alt="Persona" boxSize="200px" />
+        <Image src="/persona.svg" alt="Persona"/>
         <Text fontSize="3xl" fontWeight="bold">
           Amplie sua rede agora com o Talent Trace
         </Text>
