@@ -1,19 +1,24 @@
 import React from 'react';
-import { Box, Text, Flex, Icon } from '@chakra-ui/react';
+import { Box, Text, Flex, Icon, useBreakpointValue } from '@chakra-ui/react';
 
 export const Card = ({ title, content, icon }) => {
+
+  const breakPonit = useBreakpointValue({ base: "base", md: "md" });
+
   return (
     <Box
       bg="#1C0856"
       color="#fafafa"
       borderRadius="3xl"
-      p={8}
+      p={breakPonit === "base" ? 8 : 4}
       textAlign="center"
       position="relative"
       overflow="visible"
+      w={breakPonit === "base" ? undefined : 300}
+      h="auto"
       boxShadow="0px 4px 22px 0px rgba(0, 0, 0, 0.1)"
-      my={8}
-      mb={50}
+      m={breakPonit === "base" ? 4 : 8}
+      mb={breakPonit === "base" ? 50 : undefined}
     >
       <Flex justifyContent="center" alignItems="center" mb={3}>
         <Box
@@ -37,7 +42,9 @@ export const Card = ({ title, content, icon }) => {
       <Text fontSize="2xl" fontWeight="bold" mb={4}>
         {title}
       </Text>
-      <Text fontSize="sm" color="#cacaca">{content}</Text>
+      <Text fontSize="sm" color="#cacaca">
+        {content}
+      </Text>
     </Box>
   );
 };

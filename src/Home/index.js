@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { FiShare2, FiUserPlus, FiGitPullRequest } from 'react-icons/fi';
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Text, Button } from '@chakra-ui/react';
 
 import Header from '../Components/Header';
 import Section from '../Components/Section';
 import InfoSection from '../Components/InfoSection';
+import CardDownload from '../Components/CardDownload';
 import { Card } from '../Components/Card';
+import DevSection from '../Components/DevSection';
+import Footer from '../Components/Footer';
 
 class Index extends Component {
     render() {
@@ -52,6 +55,42 @@ class Index extends Component {
                         paragraph="Além disso, nossa plataforma permite que você entre em contato diretamente com os jogadores e seus representantes. "
                     />
                 </Section>
+                <Box 
+                    bgGradient="linear-gradient(180deg, #21BE7A 20%, #05020F 96.67%)"
+                    display="flex"
+                    flexDirection="column"
+                    p={2}
+                    py={16}
+                    gap={4}
+                    >
+                    <Text
+                        fontSize="3xl"
+                        fontWeight="bold"
+                        align='center'>
+                            Então nao mais perca tempo!
+                    </Text>
+                    <Text
+                        fontSize="2xl"
+                        color='#cacaca'
+                        align='center'>
+                            Baixe o TalentTrace agora
+                    </Text>
+                    <Button
+                        backgroundColor="#14AF6C"
+                        color="#fafafa"
+                        size="lg" 
+                        mt={6}
+                        _hover={{
+                            backgroundColor: '#fafafa',
+                            color: '#14AF6C'
+                        }}
+                        >
+                        Baixar agora!
+                    </Button>
+                </Box>
+                <DevSection/>
+                <CardDownload/>
+                <Footer/>
             </>
         );
     }
