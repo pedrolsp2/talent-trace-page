@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
+import React,{useState,useEffect} from 'react';
 import { FiShare2, FiUserPlus, FiGitPullRequest } from 'react-icons/fi';
 import { Box, Text, Button } from '@chakra-ui/react';
+import { FaArrowUp } from 'react-icons/fa';
+
+import { scrollToFooter, scrollToTop } from '../Components/Settings/scroll';
 
 import Header from '../Components/Header';
 import Section from '../Components/Section';
@@ -10,11 +13,38 @@ import { Card } from '../Components/Card';
 import DevSection from '../Components/DevSection';
 import Footer from '../Components/Footer';
 
-class Index extends Component {
-    render() {
+const Index = () => {
+    const [isVisible, setIsVisible] = useState(false);
+  
+    useEffect(() => {
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
+  
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      setIsVisible(scrollTop > 0);
+    };
         return (
             <>
                 <Header />
+                {isVisible && (
+        <Button
+          onClick={scrollToTop} 
+          w={50}
+          h={50}
+          backgroundColor='#fafafa'
+          borderRadius='full'
+          pos="fixed"
+          bottom={5}
+          right={5}
+          zIndex={100}
+        >
+          <FaArrowUp size={32} color='#14AF6C' />
+        </Button>
+      )}
                 <Section gradient>
                     <Card
                         title="Novas amizades"
@@ -84,6 +114,7 @@ class Index extends Component {
                             backgroundColor: '#fafafa',
                             color: '#14AF6C'
                         }}
+                        onClick={scrollToFooter}
                         >
                         Baixar agora!
                     </Button>
@@ -94,6 +125,5 @@ class Index extends Component {
             </>
         );
     }
-}
 
 export default Index;

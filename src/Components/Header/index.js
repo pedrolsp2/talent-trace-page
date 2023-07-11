@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Flex, Image, IconButton, VStack, Text, Button, useBreakpointValue } from '@chakra-ui/react';
 import { FiDownload } from 'react-icons/fi';
+import { scrollToFooter } from '../Settings/scroll';
 
 const Header = () => {
 
@@ -33,6 +34,7 @@ const Header = () => {
           color="#14AF6C"
           variant="ghost"
           size="lg"
+          onClick={scrollToFooter}
         />
       </Flex>
 
@@ -60,6 +62,7 @@ const Header = () => {
                 backgroundColor: '#fafafa',
                 color: '#14AF6C'
               }}
+              onClick={scrollToFooter}
             >
               Saber mais
             </Button>
