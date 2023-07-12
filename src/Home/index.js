@@ -11,6 +11,7 @@ import InfoSection from '../Components/InfoSection';
 import CardDownload from '../Components/CardDownload';
 import { Card } from '../Components/Card';
 import DevSection from '../Components/DevSection';
+import SliderPhotos from '../Components/SliderPhotos';
 import Footer from '../Components/Footer';
 
 const Index = () => {
@@ -85,6 +86,7 @@ const Index = () => {
                         paragraph="Além disso, nossa plataforma permite que você entre em contato diretamente com os jogadores e seus representantes. "
                     />
                 </Section>
+                <SliderPhotos/>
                 <Box 
                     bgGradient="linear-gradient(180deg, #21BE7A 20%, #05020F 96.67%)"
                     display="flex"
