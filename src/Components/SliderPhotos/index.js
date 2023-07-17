@@ -1,33 +1,25 @@
-import React from 'react';
-import Slider from 'react-slick';
-import { Box, Text, Image } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { Box, Button } from '@chakra-ui/react';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-const SliderPhotos = () => {
-  const photoUrls = [
-    'https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    'https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-  ];
+const SliderPhotos = ({ images }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
+  const nextSlide = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const previousSlide = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
   };
 
   return (
-    <Box>
-      <Text fontSize="xl" fontWeight="bold" mb={4}>
-        Veja um pouco sobre a galeria de fotos
-      </Text>
-      <Slider {...settings}>
-        {photoUrls.map((url, index) => (
-          <Box key={index} textAlign="center">
-            <Image src={url} alt={`Photo ${index + 1}`} maxWidth="100%" />
-          </Box>
-        ))}
-      </Slider>
+    <Box style={{display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', marginTop: 60, marginBottom: 60}}>
+      <img src={images[currentImageIndex]} alt={`Slide ${currentImageIndex}`} style={{height: 700, borderRadius: 12}}/>
+      <Button onClick={previousSlide} style={{position: 'absolute', zIndex: 99, left: -25, height: 700, backgroundColor: 'transparent'}}><FiChevronLeft size={72} color='#14AF6C'/></Button>
+      <Button onClick={nextSlide} style={{position: 'absolute', zIndex: 9999, right: -25, height: 700, backgroundColor: 'transparent'}}><FiChevronRight size={72} color='#14AF6C'/></Button>
     </Box>
   );
 };

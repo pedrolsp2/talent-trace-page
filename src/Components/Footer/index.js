@@ -1,5 +1,5 @@
 import { Box, Text, Link, Flex } from '@chakra-ui/react';
-import { FaTwitter, FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -16,16 +16,10 @@ const Footer = () => {
             Redes Sociais
           </Text>
           <Flex justify="center">
-            <Link href="https://twitter.com/seu_perfil" isExternal mr={2} _hover={{ color: 'teal.200' }}>
-              <FaTwitter size={24} />
-            </Link>
-            <Link href="https://www.instagram.com/seu_perfil" isExternal mr={2} _hover={{ color: 'teal.200' }}>
-              <FaInstagram size={24} />
-            </Link>
-            <Link href="https://www.linkedin.com/in/seu_perfil" isExternal mr={2} _hover={{ color: 'teal.200' }}>
+            <Link href="https://www.linkedin.com/in/pedro-lucas-silva-paula-794363248/" isExternal mr={2} _hover={{ color: 'teal.200' }}>
               <FaLinkedin size={24} />
             </Link>
-            <Link href="https://github.com/seu_perfil" isExternal _hover={{ color: 'teal.200' }}>
+            <Link href="https://github.com/pedrolsp2" isExternal _hover={{ color: 'teal.200' }}>
               <FaGithub size={24} />
             </Link>
           </Flex>
